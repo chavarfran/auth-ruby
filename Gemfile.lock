@@ -341,6 +341,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   pg
+  popper_js
   puma (>= 5.0)
   rails (~> 7.2.1)
   rubocop-rails-omakase
