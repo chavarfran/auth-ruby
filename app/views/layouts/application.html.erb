@@ -18,8 +18,10 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="position-absolute top-0 start-50 translate-middle-x">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
   </body>
 </html>
