@@ -66,6 +66,8 @@ gem "devise"
 
 gem "bootstrap"
 
+gem "popper_js"
+
 gem "sassc-rails"
 
 gem "jquery-rails"
