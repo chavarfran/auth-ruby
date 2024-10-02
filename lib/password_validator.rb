@@ -1,5 +1,6 @@
 class PasswordValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
+    puts "Custom password validator is being used." # Esto te permitirá ver en los logs si se está usando
     return if value.nil? || value.empty?
 
     unless value =~ /[A-Z]/ && value =~ /[a-z]/ && value =~ /[0-9]/ && value =~ /[^A-Za-z0-9]/

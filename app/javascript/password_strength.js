@@ -15,7 +15,7 @@ passwordField.addEventListener('input', function() {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error("Error en la respuesta de la API: " + response.statusText);
+            throw new Error(response.statusText);
         }
         return response.json();
     })
@@ -48,7 +48,7 @@ passwordField.addEventListener('input', function() {
         }
     })
     .catch(error => {
-        console.error("Hubo un problema con la solicitud Fetch:", error);
+        console.error(error);
     });
   });
 });
