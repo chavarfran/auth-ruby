@@ -78,4 +78,6 @@ gem "bcrypt"
 
 gem "annotate"
 
-gem "strong_password", "~> 0.0.9"
+gem "zxcvbn-ruby", require: "zxcvbn"
+
+gem "webpacker", "~> 5.4"
