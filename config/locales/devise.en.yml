@@ -55,6 +55,8 @@ en:
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
+      password:
+        password_strength: "is a terrible password, try again!"
       password_too_short: "must be at least %{count} characters"
       password_too_long: "must be at most %{count} characters"
       password_requires_letters_and_numbers: "must contain at least one letter and one number"

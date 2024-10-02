@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@github/auto-check-element": "^5.4.2"
+  }
+}

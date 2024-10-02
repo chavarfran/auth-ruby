@@ -77,3 +77,5 @@ gem "font-awesome-sass"
 gem "bcrypt"
 
 gem "annotate"
+
+gem "strong_password", "~> 0.0.9"
