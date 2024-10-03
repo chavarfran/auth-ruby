@@ -74,10 +74,6 @@ gem "jquery-rails"
 
 gem "font-awesome-sass"
 
-gem "bcrypt"
-
 gem "annotate"
-
-gem "zxcvbn-ruby", require: "zxcvbn"
 
 gem "webpacker", "~> 5.4"
