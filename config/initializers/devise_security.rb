@@ -5,7 +5,7 @@ Devise.setup do |config|
   # Configure security extension for devise
 
   # Should the password expire (e.g 3.months)
-  # config.expire_password_after = false
+  config.expire_password_after = 1.days
 
   # Need 1 char each of: A-Z, a-z, 0-9, and a punctuation mark or symbol
   # You may use "digits" in place of "digit" and "symbols" in place of
@@ -42,7 +42,7 @@ Devise.setup do |config|
   # config.captcha_for_confirmation = true
 
   # Time period for account expiry from last_activity_at
-  config.expire_after = 2.days
+  config.expire_after = 1.days
 
   # Allow password to equal the email
   # config.allow_passwords_equal_to_email = false
