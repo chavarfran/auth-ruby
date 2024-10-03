@@ -77,3 +77,5 @@ gem "font-awesome-sass"
 gem "annotate"
 
 gem "webpacker", "~> 5.4"
+
+gem "devise-security"
