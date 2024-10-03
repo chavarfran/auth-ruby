@@ -24,8 +24,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.2]
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at
-      t.datetime :confirmation_sent_at
+      # t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable
+
+      ## Password
+      t.datetime :password_changed_at
 
       ## Lockable
       t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
