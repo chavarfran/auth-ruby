@@ -22,10 +22,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.2]
       # t.string   :last_sign_in_ip
 
       ## Confirmable
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
-      # t.string   :unconfirmed_email # Only if using reconfirmable
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.string   :unconfirmed_email # Only if using reconfirmable
+
+      ## Session
+      t.string :unique_session_id
+      t.datetime :last_activity_at
+      t.datetime :expired_at
 
       ## Password
       t.datetime :password_changed_at
@@ -42,6 +47,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.2]
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :password_changed_at
+    add_index :users, :last_activity_at
+    add_index :users, :expired_at
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
