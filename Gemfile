@@ -64,6 +64,10 @@ gem "simple_form"
 
 gem "devise"
 
+gem "devise-security"
+
+gem "devise-two-factor"
+
 gem "bootstrap"
 
 gem "popper_js"
@@ -77,7 +81,5 @@ gem "font-awesome-sass"
 gem "annotate"
 
 gem "webpacker", "~> 5.4"
-
-gem "devise-security"
 
 gem "dotenv-rails"
