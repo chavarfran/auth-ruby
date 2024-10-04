@@ -41,7 +41,16 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
+  # config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV["USER_MAIL"],
+    password: ENV["PASSWORD_MAIL"],
+    address: "sandbox.smtp.mailtrap.io",
+    host: "sandbox.smtp.mailtrap.io",
+    port: "2525",
+    authentication: :login
+  }
 
   # Unlike controllers, the mailer instance doesn't have any context about the
   # incoming request so you'll need to provide the :host parameter yourself.

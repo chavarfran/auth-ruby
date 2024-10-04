@@ -79,3 +79,5 @@ gem "annotate"
 gem "webpacker", "~> 5.4"
 
 gem "devise-security"
+
+gem "dotenv-rails"
