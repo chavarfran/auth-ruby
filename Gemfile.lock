@@ -115,6 +115,10 @@ GEM
       warden (~> 1.2.3)
     devise-security (0.18.0)
       devise (>= 4.3.0)
+    dotenv (3.1.4)
+    dotenv-rails (3.1.4)
+      dotenv (= 3.1.4)
+      railties (>= 6.1)
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
@@ -345,6 +349,7 @@ DEPENDENCIES
   debug
   devise
   devise-security
+  dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass
   importmap-rails
