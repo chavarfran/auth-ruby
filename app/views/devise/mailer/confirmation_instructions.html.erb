@@ -1,5 +1,74 @@
-<p>Welcome <%= @email %>!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .email-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .email-header {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    .email-body {
+      font-size: 16px;
+      color: #555555;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .email-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .email-footer {
+      font-size: 14px;
+      color: #888888;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      Confirmación de cuenta
+    </div>
 
-<p>You can confirm your account email through the link below:</p>
+    <div class="email-body">
+      <p>Bienvenido <strong><%= @email %></strong>,</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+      <p>Puede confirmar el correo electrónico de su cuenta a través del siguiente enlace:</p>
+
+      <p style="text-align: center;">
+        <%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token), class: 'email-button' %>
+      </p>
+
+      <p>Si no realizaste esta solicitud, puedes ignorar este correo de verificación.</p>
+    </div>
+
+    <div class="email-footer">
+      <p>Si tienes algún problema, no dudes en poner en contacto con nuestro equipo de soporte.</p>
+      <p>¡Gracias por utilizar nuestro servicio!</p>
+    </div>
+  </div>
+</body>
+</html>
