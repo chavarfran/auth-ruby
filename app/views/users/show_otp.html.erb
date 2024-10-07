@@ -1,10 +1,27 @@
-<h2>Enter OTP</h2>
-<%= form_tag verify_user_otp_path, method: :post do %>
-  <div class="field">
-    <%= label_tag :otp_attempt, "OTP Code" %><br />
-    <%= text_field_tag :otp_attempt %>
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="row justify-content-center w-100">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header text-center">
+          <h2>Verificador de identidad</h2>
+        </div>
+        <div class="card-body">
+          <%= form_tag verify_user_otp_path, method: :post do %>
+            <div class="form-floating mb-3">
+              <%= text_field_tag :otp_attempt, nil, 
+                  required: true, 
+                  autofocus: true, 
+                  class: "form-control", 
+                  autocomplete: "one-time-code", 
+                  placeholder: "Código OTP" %>
+              <label for="otp_attempt">Código OTP</label> <!-- Añadimos un label dentro del div para compatibilidad con form-floating -->
+            </div>
+            <div class="actions">
+              <%= submit_tag "Verificar", class: "btn btn-success w-100" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div> 
   </div>
-  <div class="actions">
-    <%= submit_tag "Verify" %>
-  </div>
-<% end %>
+</div>
