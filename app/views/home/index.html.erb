@@ -32,6 +32,7 @@
             <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
           </a></li>
           <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/users/sing_out">Cerrar sesión</a></li>
         </ul>
       </div>
     </div>
@@ -44,11 +45,7 @@
       <h1 class="display-3 fw-bold">Autenticación</h1>
       <h3 class="fw-normal text-muted mb-3">Implementación de doble factor de autenticación</h3>
       <div class="d-flex gap-3 justify-content-center lead fw-normal">
-        <a class="icon-link" href="#">
-          Leer mas
-          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-        </a>
-        <a class="icon-link" href="#">
+        <a class="icon-link" href="/users/edit">
           Autenticarse
           <svg class="bi"><use xlink:href="#chevron-right"/></svg>
         </a>
@@ -56,17 +53,7 @@
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-  </div>
-    <% if user_signed_in? %>
-    <p>Logged in as <strong><%= current_user.email %></strong>.</p>
-    <p><%= link_to 'Edit registration', edit_user_registration_path %></p>
-    <p><%= link_to 'Logout', destroy_user_session_path, method: :delete, data:{turbo_method: :delete} %></p>
-    <%= raw RQRCode::QRCode.new(current_user.otp_provisioning_uri(current_user.email, issuer: "Devise-Two-Factor-Demo"),:svg,:level => :l, :unit => 2).as_svg %>
-  <% else %>
-    <p>Not logged in.</p>
-    <p><%= link_to 'Sign up', new_user_registration_path %></p>
-    <p><%= link_to 'Login', new_user_session_path %></p>
-  <% end %>
+ 
 </main>
 
 <footer class="container py-5">
