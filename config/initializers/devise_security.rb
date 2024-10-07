@@ -42,7 +42,7 @@ Devise.setup do |config|
   # config.captcha_for_confirmation = true
 
   # Time period for account expiry from last_activity_at
-  config.expire_after = 1.days
+  config.expire_after = 3.months
 
   # Allow password to equal the email
   # config.allow_passwords_equal_to_email = false

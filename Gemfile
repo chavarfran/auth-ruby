@@ -68,6 +68,8 @@ gem "devise-security"
 
 gem "devise-two-factor"
 
+gem "rqrcode"
+
 gem "bootstrap"
 
 gem "popper_js"
