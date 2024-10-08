@@ -1,46 +1,69 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <% if resource.otp_required_for_login %>
-      <div class="field" style="margin: 1em">
-        <i>Enter OTP to disable Two Factor Authentication</i><br />
-        <%= f.text_field :otp_attempt %>
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="row justify-content-center w-100">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header text-center">
+          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+        </div>
+        <div class="card-body">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+            <div class="form-floating mb-3">
+              <%= f.input :email, required: true, autofocus: true, input_html: { class: "form-control", autocomplete: "email" }%>
+            </div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
+              <div class="form-floating mb-3">  
+                <%= f.input :password,
+                            hint: " déjelo en blanco si no quieres cambiarlo.",
+                            required: false,
+                            input_html: { class: "form-control", autocomplete: "new-password" } %>
+              </div>
+              <% if resource.otp_required_for_login %>
+                <div class="field" style="margin: 1em">
+                  <i>Introduzca OTP para desactivar la autenticación de dos factores</i><br />
+                    <%= text_field_tag :otp_attempt, nil, 
+                    required: true, 
+                    autofocus: true, 
+                    class: "form-control", 
+                    autocomplete: "one-time-code", 
+                    placeholder: "Código OTP" %>
+                </div>
+              <% else %>
+                <div class="field" style="margin: 1em">
+                  <i>Enable OTP?</i><br />
+                  <%= link_to "Enable 2FA", enable_otp_show_qr_path %>
+                </div>
+              <% end %>
+              <div class="form-floating mb-3">
+                <%= f.input :password_confirmation,
+                          required: false,
+                          input_html: { class: "form-control", autocomplete: "new-password" } %>
+              </div>
+              <div class="form-floating mb-3">
+                 <%= f.input :current_password,
+                          hint: "Necesitamos tu contraseña actual para confirmar tus cambios",
+                          required: true,
+                          input_html: { class: "form-control", autocomplete: "current-password" } %>
+              </div>
+              <div class="d-grid">
+                 <%= f.button :submit, "Actualizar",  class: "btn btn-success btn-block" %>
+              </div>
+            <% end %>
+        </div>
       </div>
-    <% else %>
-      <div class="field" style="margin: 1em">
-        <i>Enable OTP?</i><br />
-        <%= link_to "Enable 2FA", enable_otp_show_qr_path %>
-      </div>
-    <% end %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+      <div class="card mt-2">
+        <div class="card-header text-center">
+          <h3>Cancel my account</h3>
+        </div>
+        <div class="card-body">
+          <div>
+            ¿Desea finalizar o eliminar la cuenta permanentemente? 
+            <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+          <%= link_to "Back", :back %>
+        </div>
+      </div> 
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
