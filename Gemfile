@@ -78,8 +78,6 @@ gem "sassc-rails"
 
 gem "jquery-rails"
 
-gem "font-awesome-sass"
-
 gem "annotate"
 
 gem "webpacker", "~> 5.4"
